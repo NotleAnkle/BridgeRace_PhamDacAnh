@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 6da481ac0e9e94f4ab952f9d79a2a62b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - colorData: {fileID: 11400000, guid: 077e23a1ca699b34abd6abb5e79560cb, type: 2}
+  - render: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - brickPackage: {instanceID: 0}
+  - playerBrickPrefab: {instanceID: 0}
+  - stage: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
