@@ -6,7 +6,6 @@ public class DropBrick : GameUnit
 {
     [SerializeField] private Rigidbody rb;
     private Stage stage;
-    // Start is called before the first frame update
 
     public void OnInit()
     {
@@ -44,7 +43,7 @@ public class DropBrick : GameUnit
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ground"))
+        if (other.CompareTag(Constant.TAG_GROUND))
         {
             stage.SpawnGrayBrickAt(transform);
             OnDespawn();

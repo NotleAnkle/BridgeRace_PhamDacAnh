@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -311,7 +311,7 @@ MonoBehaviour:
   stairLayer:
     serializedVersion: 2
     m_Bits: 64
-  model: {fileID: 1481740512}
+  model: {fileID: 1481740513}
   rb: {fileID: 245981556}
   joystick: {fileID: 55154614}
   speed: 10
@@ -1008,7 +1008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0e4e678a9c736439b5255b3bde1d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 245981555}
+  poolType: 0
+  target: {fileID: 245981557}
 --- !u!1 &980171727
 GameObject:
   m_ObjectHideFlags: 0

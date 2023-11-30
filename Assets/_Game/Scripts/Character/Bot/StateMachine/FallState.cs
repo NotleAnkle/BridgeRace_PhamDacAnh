@@ -7,10 +7,10 @@ public class FallState : IState<Bot>
     float timer = 0f;
     public void OnEnter(Bot t)
     {
-        t.ChangeAnim("fall");
+        t.ChangeAnim(Constant.ANIM_FALL);
         for (int i = 0; i < t.playerBrickCount; i++)
         {
-            DropBrick dropBrick =  SimplePool.Spawn<DropBrick>(PoolType.DropBrick, t.transform.position + Vector3.up*2f, Quaternion.identity);
+            DropBrick dropBrick =  SimplePool.Spawn<DropBrick>(PoolType.DropBrick, t.TF.position + Vector3.up*2f, Quaternion.identity);
             dropBrick.SetStage(t.getStage());
             dropBrick.OnInit();
         }

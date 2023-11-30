@@ -14,9 +14,9 @@ public class PlayerCollier : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bot"))
+        if (other.CompareTag(Constant.TAG_BOT))
         {
-            Bot bot = other.GetComponent<Bot>();
+            Bot bot = Cache<Bot>.GetScript(other);
 
             if (bot.playerBrickCount < player.playerBrickCount)
             {

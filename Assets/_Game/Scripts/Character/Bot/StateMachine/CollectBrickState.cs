@@ -7,7 +7,7 @@ public class CollectBrickState : IState<Bot>
     private float limit;
     public void OnEnter(Bot t)
     {
-        t.ChangeAnim("run");
+        t.ChangeAnim(Constant.ANIM_RUN);
         t.GetNextBrickPos();
         t.ContinueMove();
         limit = Random.Range(3, 9);

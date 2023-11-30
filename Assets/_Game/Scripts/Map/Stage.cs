@@ -14,11 +14,6 @@ public class Stage : MonoBehaviour
     private List<ColorType> colorList = new List<ColorType>();
     int amount;
 
-    //private void Start()
-    //{
-    //    OnInit();
-    //}
-
     private void Awake()
     {
         GetEmptyPos();
@@ -104,7 +99,6 @@ public class Stage : MonoBehaviour
             int rand = UnityEngine.Random.Range(0, emptyPos.Count);
 
             Brick brick = SimplePool.Spawn<Brick>(PoolType.Brick, emptyPos[rand], Quaternion.identity);
-            //brick.transform.SetParent(platform.transform);
             brick.ChangeColor(colorType);
 
             emptyPos.RemoveAt(rand);
@@ -119,7 +113,7 @@ public class Stage : MonoBehaviour
         bricks.Remove(brick);
         if(brick.colorType != ColorType.Gray)
         {
-            emptyPos.Add(brick.transform.position);
+            emptyPos.Add(brick.TF.position);
         }
     }
 

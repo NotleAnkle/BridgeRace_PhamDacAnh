@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowingCamera : MonoBehaviour
+public class FollowingCamera : GameUnit
 {
     private Vector3 offset;
-    public GameObject target;
+    public GameUnit target;
     // Start is called before the first frame update
     void Start()
     {
-        offset = transform.position - target.transform.position;
+        offset = TF.position - target.TF.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = offset + target.transform.position;
+        transform.position = offset + target.TF.position;
     }
 }

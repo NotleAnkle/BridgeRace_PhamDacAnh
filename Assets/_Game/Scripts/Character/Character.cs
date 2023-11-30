@@ -7,7 +7,7 @@ public class Character : ColorObject
     [SerializeField] private GameObject brickPackage;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask stairLayer;
-    [SerializeField] protected GameObject model;
+    [SerializeField] protected Transform model;
 
     private string currentAnimName;
     private Stack<PlayerBrick> playerBricks = new Stack<PlayerBrick>();
@@ -27,7 +27,7 @@ public class Character : ColorObject
 
     public virtual void OnInit()
     {
-        ChangeAnim("idle");
+        ChangeAnim(Constant.ANIM_IDLE);
         transform.position = StartPos;
         ClearBrick();
     }
@@ -71,9 +71,9 @@ public class Character : ColorObject
         if (Physics.Raycast(nextPos + new Vector3(0, 1f, 0), Vector3.down, out hit, 2f, stairLayer))
         {
 
-            StairBrick stairBrick = hit.collider.GetComponent<StairBrick>();
+            StairBrick stairBrick = Cache<StairBrick>.GetScript(hit.collider);
 
-            if (stairBrick.colorType == ColorType.None && model.transform.forward.z < 0f)
+            if (stairBrick.colorType == ColorType.None && model.forward.z < 0f)
             {
                 return false;
             }
@@ -86,7 +86,7 @@ public class Character : ColorObject
                 stage.SpawnOneColorBrick(colorType);
             }
 
-            if (stairBrick.colorType != colorType && playerBricks.Count == 0 && model.transform.forward.z > 0)
+            if (stairBrick.colorType != colorType && playerBricks.Count == 0 && model.forward.z > 0)
             {
                 IsCanMove = false;
             }
@@ -100,10 +100,12 @@ public class Character : ColorObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Brick") && !IsFall)
+        if (other.CompareTag(Constant.TAG_BRICK) && !IsFall)
         {
-            Brick brick = other.GetComponent<Brick>();
-            if(brick.colorType == colorType || brick.colorType == ColorType.Gray)
+
+            Brick brick = Cache<Brick>.GetScript(other);
+
+            if (brick.colorType == colorType || brick.colorType == ColorType.Gray)
             {
                 AddBrick();
                 stage.RemoveBrick(brick);
@@ -112,9 +114,9 @@ public class Character : ColorObject
 
         else
         {
-            if (other.CompareTag("Door"))
+            if (other.CompareTag(Constant.TAG_DOOR))
             {
-                Door door = other.GetComponent<Door>();
+                Door door = Cache<Door>.GetScript(other);
                 if (door.index != LevelManager.Instance.GetStageIndex(stage))
                 {
                     stage.ClearColorBrick(colorType);

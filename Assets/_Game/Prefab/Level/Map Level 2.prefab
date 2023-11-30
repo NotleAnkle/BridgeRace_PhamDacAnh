@@ -183,7 +183,7 @@ MonoBehaviour:
   stairLayer:
     serializedVersion: 2
     m_Bits: 64
-  model: {fileID: 1151229176791159988}
+  model: {fileID: 338381827238759950}
   agent: {fileID: 232099240472488808}
   speed: 10
   bricks: []
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   stairLayer:
     serializedVersion: 2
     m_Bits: 64
-  model: {fileID: 1151229177477880145}
+  model: {fileID: 338381828665770987}
   agent: {fileID: 232099242332477248}
   speed: 10
   bricks: []
@@ -5698,7 +5698,7 @@ MonoBehaviour:
   stairLayer:
     serializedVersion: 2
     m_Bits: 64
-  model: {fileID: 4565143325346124483}
+  model: {fileID: 4565143325346124477}
   agent: {fileID: 4565143324645648663}
   speed: 10
   bricks: []

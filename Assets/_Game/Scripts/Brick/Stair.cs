@@ -11,11 +11,11 @@ public class Stair : MonoBehaviour
         {
             StairBrick stairBrick = Instantiate(stairBrickPrefab, transform);
             stairBrick.name = "StairBrick " + i;
-            stairBrick.transform.localPosition = new Vector3 (0, 0.7f + i*0.5f, i*0.5f);
+            stairBrick.TF.localPosition = new Vector3 (0, 0.7f + i*0.5f, i*0.5f);
 
             stairBrick = Instantiate(stairBrickPrefab, transform);
             stairBrick.name = "StairBrick -" + i;
-            stairBrick.transform.localPosition = new Vector3(0, 0.7f - i * 0.5f, -i * 0.5f);
+            stairBrick.TF.localPosition = new Vector3(0, 0.7f - i * 0.5f, -i * 0.5f);
         }
     }
 }

@@ -7,7 +7,7 @@ public class IdleState : IState<Bot>
     float timer;
     public void OnEnter(Bot t)
     {
-        t.ChangeAnim("idle");
+        t.ChangeAnim(Constant.ANIM_IDLE);
     }
 
     public void OnExecute(Bot t)

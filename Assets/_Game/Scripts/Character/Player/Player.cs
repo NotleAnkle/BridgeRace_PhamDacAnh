@@ -46,14 +46,14 @@ public class Player : Character
         {
             transform.position = CheckGround(nextPos);
         }
-        ChangeAnim("run");
+        ChangeAnim(Constant.ANIM_RUN);
 
         Turn();
     }
 
     private void Idle()
     {
-        ChangeAnim("idle");
+        ChangeAnim(Constant.ANIM_IDLE);
     }
 
     private void Turn()
@@ -68,7 +68,7 @@ public class Player : Character
         dropBrick.OnInit();
 
         ClearBrick();
-        ChangeAnim("fall");
+        ChangeAnim(Constant.ANIM_FALL);
     }
 
     public void StandUp()

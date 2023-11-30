@@ -18,7 +18,7 @@ public class MoveToFinshPointState : IState<Bot>
         }
         else
         {
-            t.CheckStair(t.transform.position);
+            t.CheckStair(t.TF.position);
         }
     }
 

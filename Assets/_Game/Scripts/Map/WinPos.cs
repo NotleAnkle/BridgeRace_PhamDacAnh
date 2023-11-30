@@ -6,12 +6,12 @@ public class WinPos : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag(Constant.TAG_PLAYER))
         {
             GameManager.Instance.OnWin();
         }
 
-        if (other.CompareTag("Bot"))
+        if (other.CompareTag(Constant.TAG_BOT))
         {
             GameManager.Instance.OnLose();
         }

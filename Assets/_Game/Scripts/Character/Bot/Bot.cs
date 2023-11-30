@@ -8,7 +8,6 @@ public class Bot : Character
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private float speed;
-    // Start is called before the first frame update
 
     private Vector3 targetPos;
     private Vector3 endPos;
@@ -46,7 +45,7 @@ public class Bot : Character
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position + new Vector3(0, 1f, 0), Vector3.down * 2f);
+        Gizmos.DrawRay(TF.position + new Vector3(0, 1f, 0), Vector3.down * 2f);
     }
     public void ChangeState(IState<Bot> state)
     {
@@ -66,7 +65,7 @@ public class Bot : Character
 
     public bool CheckDestination()
     {
-        float dis = Vector3.Distance(targetPos, transform.position);
+        float dis = Vector3.Distance(targetPos, TF.position);
         return (dis < 0.1f);
     }
 
@@ -75,7 +74,6 @@ public class Bot : Character
         ContinueMove();
         targetPos = pos;
         agent.SetDestination(pos);
-        //ChangeAnim("run");
     }
 
     private void GetBrickList()
@@ -93,11 +91,11 @@ public class Bot : Character
             return;
         }
 
-        float min = Vector3.Distance(transform.position, bricks[0].transform.position);
+        float min = Vector3.Distance(TF.position, bricks[0].TF.position);
         int index = 0;
         for(int i = 0; i < bricks.Count; i++)
         {
-            float dis = Vector3.Distance(transform.position, bricks[i].transform.position);
+            float dis = Vector3.Distance(TF.position, bricks[i].TF.position);
             if(dis < min)
             {
                 min = dis;
@@ -105,7 +103,7 @@ public class Bot : Character
             }
         }
 
-        MoveTo(bricks[index].transform.position);
+        MoveTo(bricks[index].TF.position);
     }
 
     public void StopMove()
